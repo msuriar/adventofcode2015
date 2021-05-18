@@ -18,5 +18,19 @@ class WrappingTest(unittest.TestCase):
         want = 43
         self.assertEqual(got, want)
 
+    def test_ribbon_one(self):
+        line = '2x3x4'
+        box = wrapping.Box(line)
+        got = box.ribbon()
+        want = 34
+        self.assertEqual(got, want)
+
+    def test_ribbon_two(self):
+        line = '1x1x10'
+        box = wrapping.Box(line)
+        got = box.ribbon()
+        want = 14
+        self.assertEqual(got, want)
+
 if __name__ == "__main__":
     unittest.main()

@@ -5,8 +5,12 @@ from collections import defaultdict
 def main():
     with open('input.conf') as f:
         course = f.read()
-        t = traverse(course)
-        print(t.have_presents(min_count=1))
+        santa = course[::2]
+        robosanta = course[1::2]
+        t1 = traverse(santa)
+        t2 = traverse(robosanta)
+        all_locations = set(t1.locations.keys() + t2.locations.keys())
+        print(len(all_locations))
 
 def traverse(course):
     return Houses(course)

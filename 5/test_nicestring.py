@@ -16,5 +16,12 @@ class TestNiceString(unittest.TestCase):
         got = nicestring.check(candidate)
         self.assertEqual(got, want)
 
+    def test_it_requires_double_letter(self):
+        candidate = 'jchzalrnumimnmhp'
+        want = False
+        got = nicestring.check(candidate)
+        self.assertEqual(got, want)
+
+
 if __name__ == "__main__":
     unittest.main()

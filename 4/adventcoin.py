@@ -4,7 +4,7 @@ import hashlib
 
 def main():
     incoming = 'bgvyzdsv'
-    target = '0'*5
+    target = '0'*6
     print(solve(incoming, target))
 
 def solve(seed, target):

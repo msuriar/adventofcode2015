@@ -4,14 +4,15 @@ import hashlib
 
 def main():
     incoming = 'bgvyzdsv'
-    print(solve(incoming))
+    target = '0'*5
+    print(solve(incoming, target))
 
-def solve(seed):
+def solve(seed, target):
     counter = 1
     while True:
         candidate = str.encode(seed+str(counter))
-        prefix = hashlib.md5(candidate).hexdigest()[:5]
-        if prefix == '00000':
+        solution = hashlib.md5(candidate).hexdigest()
+        if solution.startswith(target):
             return counter
         counter += 1
 

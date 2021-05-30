@@ -22,13 +22,17 @@ class TestNiceString(unittest.TestCase):
         got = nicestring.check(candidate)
         self.assertEqual(got, want)
 
-
     def test_it_rejects_bad_strings(self):
         candidate = 'haegwjzuvuyypxyu'
         want = False
         got = nicestring.check(candidate)
         self.assertEqual(got, want)
 
+    def test_it_requires_three_vowels(self):
+        candidate = 'dvszwmarrgswjxmb'
+        want = False
+        got = nicestring.check(candidate)
+        self.assertEqual(got, want)
 
 if __name__ == "__main__":
     unittest.main()

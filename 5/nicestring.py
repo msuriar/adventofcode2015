@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+def main():
+    with open('input.conf') as f:
+        print(sum([1 for l in f if check(l)]))
+
 def check(s):
     if not check_double_letter(s):
         return False
@@ -21,3 +25,6 @@ def check_vowels(s):
     vowels = set('aeiou')
     num_vowels = sum((1 for c in s if c in vowels))
     return num_vowels >= 3
+
+if __name__ == "__main__":
+    main()

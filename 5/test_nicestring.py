@@ -34,5 +34,30 @@ class TestNiceString(unittest.TestCase):
         got = nicestring.check(candidate)
         self.assertEqual(got, want)
 
+class TestNiceString2(unittest.TestCase):
+    def test_short_nice_string(self):
+        candidate = 'xxyxx'
+        want = True
+        got = nicestring.check2(candidate)
+        self.assertEqual(got, want)
+
+    def test_long_nice_string(self):
+        candidate = 'qjhvhtzxzqqjkmpb'
+        want = True
+        got = nicestring.check2(candidate)
+        self.assertEqual(got, want)
+
+    def test_it_needs_repeat_with_single_letter_between(self):
+        candidate = 'uurcxstgmygtbstg'
+        want = False
+        got = nicestring.check2(candidate)
+        self.assertEqual(got, want)
+
+    def test_it_needs_duplicate_pairs(self):
+        candidate = 'ieodomkazucvgmuy'
+        want = False
+        got = nicestring.check2(candidate)
+        self.assertEqual(got, want)
+
 if __name__ == "__main__":
     unittest.main()
